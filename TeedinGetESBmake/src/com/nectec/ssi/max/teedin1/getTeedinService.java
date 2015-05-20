@@ -24,25 +24,25 @@ public class getTeedinService {
         String datecurr=dateFormat.format(date); 
         
         Parcel out;
-        try{
+        //try{
         out=getParcel(provincecode, amphoecode, ns4No).getParcel().get(0);
-        if(out.getAMPHURNAME().getValue().length()<1 || out.getAMPHURNAME().getValue().equals("null"))throw new Exception();
-        }catch(Exception e){
-            out=null;
-        }
+        //if(out.getAMPHURNAME().getValue().length()<1 || out.getAMPHURNAME().getValue().equals("null"))throw new Exception();
+        //}catch(Exception e){
+            
+       //}
         
         
         
-        if(out==null && out.getAreaRai()!=null){
+        if(out.getLANDOFFICEX()==null && out.getAreaRai()!=null){
             String str="";
             str += out.getAreaRai() + "\t";
             str += out.getAreaNang()+ "\t";
             str += out.getAreaWa();
             throw new Exception("ไม่มีข้อมูลที่ตั่ง\t\t\t\t\t\t\t\t\t\t\t\t\t\t"+str+"\t"+datecurr);
         }
-        else if (out.getAreaRai()==null && out==null) {
+        else if (out.getAreaRai()==null && out.getLANDOFFICEX()==null) {
             throw new Exception("ไม่พบข้อมูล\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"+"\t"+datecurr);
-        }else if(out!=null && out.getAreaRai()==null){
+        }else if(out.getLANDOFFICEX()!=null && out.getAreaRai()==null){
             String str = "";
             str += out.getAMPHURNAME().getValue() + "\t";
             str += out.getLANDOFFICENAME().getValue() + "\t";

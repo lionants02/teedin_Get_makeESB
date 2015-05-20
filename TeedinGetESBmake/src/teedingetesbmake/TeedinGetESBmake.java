@@ -32,7 +32,7 @@ public class TeedinGetESBmake {
         C_readLine readline;
         
         try {
-            readline=new C_readLine("C:\\Users\\SSI\\Desktop\\data_get_direct.txt");
+            readline=new C_readLine("C:\\Users\\SSI\\Desktop\\data_get_esb.txt");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(TeedinGetESBmake.class.getName()).log(Level.SEVERE, null, ex);
             return;
@@ -45,7 +45,7 @@ public class TeedinGetESBmake {
             System.out.println(data1.trim());
         }*/
         
-        C_WriteTeedinToFile writeerfi = new C_WriteTeedinToFile("C:\\Users\\SSI\\Desktop\\data_direct.txt");
+        C_WriteTeedinToFile writeerfi = new C_WriteTeedinToFile("C:\\Users\\SSI\\Desktop\\data_esb.txt");
         while (currentn4 != null) {
             
             try {
