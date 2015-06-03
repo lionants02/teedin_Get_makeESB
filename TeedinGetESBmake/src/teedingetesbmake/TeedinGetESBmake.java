@@ -20,11 +20,14 @@ import java.util.logging.Logger;
  */
 public class TeedinGetESBmake {
 
+       
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        String provincecode="13";
+        String ampercode="03"; 
         TrustAllX509TrustManager.my_passCer();
         getTeedinService func=new getTeedinService();
         //ArrayOfParcel result=getParcel("13", "01", "99999");
@@ -32,7 +35,7 @@ public class TeedinGetESBmake {
         C_readLine readline;
         
         try {
-            readline=new C_readLine("C:\\Users\\SSI\\Desktop\\data_get_esb.txt");
+            readline=new C_readLine("C:\\Users\\Administrator\\Desktop\\data.txt");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(TeedinGetESBmake.class.getName()).log(Level.SEVERE, null, ex);
             return;
@@ -45,27 +48,27 @@ public class TeedinGetESBmake {
             System.out.println(data1.trim());
         }*/
         
-        C_WriteTeedinToFile writeerfi = new C_WriteTeedinToFile("C:\\Users\\SSI\\Desktop\\data_esb.txt");
+        C_WriteTeedinToFile writeerfi = new C_WriteTeedinToFile("C:\\Users\\Administrator\\Desktop\\data_res.txt");
         while (currentn4 != null) {
             
             try {
                 out=null;
-                out = func.my_getValue("40", "01", currentn4);
-                writeerfi.writeToFile("40", "1", currentn4, out);
+                out = func.my_getValue(provincecode, ampercode, currentn4);
+                writeerfi.writeToFile(provincecode, ampercode, currentn4, out);
             } catch (Exception ex) {
                 
                 try {
                     out=null;
-                    out = func.my_getValue("40", "01", currentn4);
-                    writeerfi.writeToFile("40", "1", currentn4, out);
+                    out = func.my_getValue(provincecode, ampercode, currentn4);
+                    writeerfi.writeToFile(provincecode, ampercode, currentn4, out);
                 } catch (Exception ex1) {
                     try {
                         out=null;
-                        out = func.my_getValue("40", "01", currentn4);
-                        writeerfi.writeToFile("40", "1", currentn4, out);
+                        out = func.my_getValue(provincecode, ampercode, currentn4);
+                        writeerfi.writeToFile(provincecode, ampercode, currentn4, out);
                     } catch (Exception ex2) {
                         Logger.getLogger(TeedinGetESBmake.class.getName()).log(Level.SEVERE, null, ex2);
-                        writeerfi.writeToFileErr("40", "1", currentn4,ex2.getMessage());
+                        writeerfi.writeToFileErr(provincecode, ampercode, currentn4,ex2.getMessage());
                     }                    
                 }                
                 //writeerfi.writeToFileErr("40", "01", currentn4);
